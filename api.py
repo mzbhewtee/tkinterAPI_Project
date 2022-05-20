@@ -1,5 +1,5 @@
 import csv
-from env import api, api2
+from ENV import api, api2
 from urllib import request
 import json
 from json import loads
