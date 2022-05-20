@@ -1,11 +1,16 @@
-import csv
-from ENV import api, api2
+import os
 from urllib import request
 import json
 from json import loads
 import requests
 from requests import get
 import datetime
+from dotenv import load_dotenv
+
+load_dotenv() 
+
+api = os.environ.get('api')
+api2 = os.environ.get('api2')
 
 uri = 'https://api.football-data.org/v4/matches'
 headers = { 'X-Auth-Token': api2 }
@@ -29,8 +34,8 @@ Retrieve the current weather forecast from OpenWeatherMap.
 """
 def get_weather_forecast(coords={'lat': -1.9441, 'lon': 30.0619}): # default location at Cape Canaveral, FL
     try: # retrieve forecast for specified coordinates
-        api_key = api # replace with your own OpenWeatherMap API key
-        url = f'https://api.openweathermap.org/data/2.5/forecast?lat={coords["lat"]}&lon={coords["lon"]}&appid={api_key}&units=metric'
+        # api = '6dce9c12713225dcb83453c986263b9c' # replace with your own OpenWeatherMap API key
+        url = f'https://api.openweathermap.org/data/2.5/forecast?lat={coords["lat"]}&lon={coords["lon"]}&appid={api}&units=metric'
         data = json.load(request.urlopen(url))
 
         forecast = {'city': data['city']['name'], # city name
@@ -46,7 +51,7 @@ def get_weather_forecast(coords={'lat': -1.9441, 'lon': 30.0619}): # default loc
         return forecast
 
     except Exception as e:
-        print("Rhere are issues when generating today's weather forecast")        
+        print("\nThere are issues when generating today's weather forecast",e)        
 
 def get_twitter_trends():
     pass
