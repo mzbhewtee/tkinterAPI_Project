@@ -50,7 +50,9 @@ def get_weather_forecast(coords={'lat': -1.9441, 'lon': 30.0619}): # default loc
     except Exception as e:
         print("\nThere are issues when generating today's weather forecast",e)        
 
-pot = []
+"""
+Retrieve the current football matches
+"""
 def matches():
     try:
         uri = 'https://api.football-data.org/v4/matches'
@@ -72,17 +74,36 @@ def matches():
     except Exception as e:
         print(" Sorry, We couldn't get today's match", e)
 
+"""
+Retrieve the summary extract for a random Wikipedia article.
+"""
+def get_wikipedia_article():
+    try: # retrieve random Wikipedia article
+        data = json.load(request.urlopen('https://en.wikipedia.org/api/rest_v1/page/random/summary'))
+        return {'title': data['title'],
+                'extract': data['extract'],
+                'url': data['content_urls']['desktop']['page']}
+
+    except Exception as e:
+        print(e)
+
 
 if __name__ == '__main__':
    
-    print("------ Quote of the day ------")
+    print("------ Quote of the day ------\n")
     print(get_quotes())
 
     forecast = get_weather_forecast() # get forecast for default location
     if forecast:
-        print(f'\n------ Weather forecast for {forecast["city"]}, {forecast["country"]} ------')
+        print(f'\n\n------ Weather forecast for {forecast["city"]}, {forecast["country"]} ------\n')
         for period in forecast['periods']:
             print(f' - {period["timestamp"]} | {period["temp"]}°C | {period["description"]}')
 
-    print("\n---Football matches---")
+    print("\n\n---Football matches---\n")
     print(matches())
+
+    
+
+    article = get_wikipedia_article()
+    if article:
+        print(f'\n{article["title"]}\n<{article["url"]}>\n{article["extract"]}')
