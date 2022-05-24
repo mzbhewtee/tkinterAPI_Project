@@ -43,7 +43,7 @@ def get_weather_forecast(coords={'lat': -1.9441, 'lon': 30.0619}): # default loc
             forecast['periods'].append({'timestamp': datetime.datetime.fromtimestamp(period['dt']),
                                         'temp': round(period['main']['temp']),
                                         'description': period['weather'][0]['description'].title()})
-                                        # 'icon': f'http://openweathermap.org/img/wn/{period["weather"][0]["icon"]}.png'})
+                        
         
         return forecast
 
@@ -57,8 +57,6 @@ def matches():
         headers = { 'X-Auth-Token': api2 }
         response = (requests.get(uri, headers=headers)).json()
 
-        reentries = ('crest','id','name','tla','winner')
-        entries=('area','competition','season','id','referees','odds','group','stage','matchday','status','lastUpdated')
         for match in response['matches']:
             Date = match.get('utcDate')
             Away = match.get('awayTeam')
