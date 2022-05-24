@@ -7,6 +7,7 @@ from requests import get
 import datetime
 from dotenv import load_dotenv
 import pandas as pd
+import pprint
 
 load_dotenv() 
 
@@ -49,17 +50,27 @@ def get_weather_forecast(coords={'lat': -1.9441, 'lon': 30.0619}): # default loc
     except Exception as e:
         print("\nThere are issues when generating today's weather forecast",e)        
 
-
+pot = []
 def matches():
     try:
         uri = 'https://api.football-data.org/v4/matches'
         headers = { 'X-Auth-Token': api2 }
         response = (requests.get(uri, headers=headers)).json()
 
+        reentries = ('crest','id','name','tla','winner')
+        entries=('area','competition','season','id','referees','odds','group','stage','matchday','status','lastUpdated')
         for match in response['matches']:
-            df = pd.DataFrame(match)
-            print(df)
-
+            Date = match.get('utcDate')
+            Away = match.get('awayTeam')
+            Home = match.get('homeTeam')
+            Duration = match.get('score')
+            Hgoal = match.get('score',{}).get('fullTime', {}).get('home')
+            Agoal = match.get('score',{}).get('fullTime', {}).get('away')
+            Hgoali = match.get('score',{}).get('halfTime', {}).get('home')
+            Agoali = match.get('score',{}).get('halfTime', {}).get('away')
+            print(Away['shortName'], "VS", Home['shortName'], " ", Date,"Game Duration:", Duration['duration'], "\nFulltime Score=>", Hgoal,":",Agoal, " ", " Halftime Score=>", Hgoali,":",Agoali,"\n")
+            
+        
     except Exception as e:
         print(" Sorry, We couldn't get today's match", e)
 
