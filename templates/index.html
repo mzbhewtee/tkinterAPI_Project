@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+
+    <title>Home</title>
+</head>
+<body>
+    <div>
+        Quote of the day, {{ get_quotes }} <br> {{ author }}
+    </div>
+    <ol>
+        weather, {% for i in range(0, len) %}
+        <li>{{ x[i] }}</li>
+        {% endfor %}
+    </ol>
+    <div>
+        wiki, {{ wiki }}
+    </div>
+    <ol>football, {% for i in range(0, game) %}
+        <li>{{ games[i] }}</li>
+            {% endfor %}
+    </ol>
+    <div>homecheck, {{xop}}</div>
+</body>
+</html>

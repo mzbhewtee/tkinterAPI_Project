@@ -1,3 +1,4 @@
+from email.quoprimime import quote
 import os
 from urllib import request
 import json
@@ -22,7 +23,9 @@ Retrive random quotes from api forismatic
 def get_quotes():
     try: #retrieve quotes
         response = get('http://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en')
-        return '{quoteText} - {quoteAuthor}'.format(**loads(response.text))
+        return('{quoteText}'.format(**loads(response.text)))
+        # return x
+        # return '{quoteText} - {quoteAuthor}'.format(**loads(response.text))
 
     except Exception as e:
         print('Life goes on, no matter your struggles - Beauty Ikudehinbu')
