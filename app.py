@@ -55,7 +55,7 @@ def index():
         for period in data['list'][0:9]: # populate list with next 9 forecast periods 
             forecast['periods'].append({'timestamp': datetime.datetime.fromtimestamp(period['dt']),
                                         'temp': round(period['main']['temp']),
-                                        'description': period['weather'][0]['icon']})
+                                        'description': period['weather'][0]['description'].title()})
                         
         
             if forecast:

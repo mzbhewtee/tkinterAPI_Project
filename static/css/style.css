@@ -11,6 +11,11 @@ body {
   background: radial-gradient(ellipse farthest-corner at center top, #fff 0%, #e4f1fc 100%);
   color: #4682b4;
   font-family: "Nunito", sans-serif;
+  max-width: 680px; 
+  float: none !important;
+  /* overflow: hidden; */
+	/* margin: 0 auto !important;  */
+ 
 }
 
 .head{
@@ -53,7 +58,7 @@ h4{
     width: 100%;
     background-image: url('gyt.webp');
     background-color: rgba(0,0,0,0.25);
-    height: 17vh;
+    height: 19vh;
 }
 
 .quote{
@@ -65,6 +70,7 @@ h4{
     color: #fff;
 }
 .quote h2{
+    color: #fff;
     font-size: 0.8em;
     text-align: center;
     justify-content: center;
@@ -77,18 +83,43 @@ h4{
 }
 
 .first{
+    margin-top: 4vh;
+    /* border-inline: 4vh; */
     width: 100%;
     display: flex;
+    /* overflow: hidden; */
+    margin-bottom: 8vh;
 }
 h2{
-    font-size: 1em;
+    font-size: 1.1em;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    color: #1d2127;
+    text-decoration: underline;
 }
 .weather{
-    flex: 50%;
-    margin-left: 9px;
+    border-radius: 10px;
+    box-shadow: -20px 20px 50px #8e979c;
+    flex: 60%;
+    margin-left: 19px;
+    margin-right: 19px;
+    background: url('wet.jpg');
+}
+ol li{
+    /* margin-left: 0px; */
+    list-style-type: circle;
+    
+    font-size: 0.8em;
+    color: #1d2127;
+
 }
 .todoList{
+    border-radius: 10px;
+    box-shadow: 20px 20px 50px#8e979c;
     flex: 50%;
+    background-color: #ffd1dc;
+    margin-right: 19px;
 }
 /* Main Content */
 .content {
@@ -109,7 +140,7 @@ h2{
   .content input[type=text] {
     font-weight: 700;
     font-size: 1rem;
-    color: #6C717B;
+    color: #1d2127;
   }
   .content .input-buttons a {
     text-decoration: none;
@@ -117,7 +148,7 @@ h2{
   .content .input-buttons i {
     margin-top: 5px;
     font-size: 20px;
-    color: #8e979c;
+    color: #1d2127;
   }
   .content ul.todos {
     margin-left: 0;
@@ -133,7 +164,7 @@ h2{
     justify-content: space-between;
   }
   .content li i {
-    color: #6C717B;
+    color: #1d2127;
     font-size: 15px;
     cursor: pointer;
     padding: 5px 10px;
@@ -142,7 +173,7 @@ h2{
     display: none;
   }
   .content input[type=checkbox] + label {
-    color: #6C717B;
+    color: #1d2127;
     font-size: 15px;
     cursor: pointer;
     position: relative;
