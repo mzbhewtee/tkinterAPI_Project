@@ -37,8 +37,11 @@ def index():
 
     except Exception as e:
         print('Life goes on, no matter your struggles - Beauty Ikudehinbu')
+        Text = 'Life goes on, no matter your struggles'
+        Author = '- Beauty Ikudehinbu'
+        return render_template('index.html', get_quotes=Text, author=Author, wiki=aextract, game=len(games), games=games, len=len(x), x=x, date=date)
+     
 
-    
     coords={'lat': -1.9441, 'lon': 30.0619} # default location at Kigali,
     try: # retrieve forecast for specified coordinates
         
