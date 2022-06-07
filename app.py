@@ -7,8 +7,11 @@ from json import loads
 import requests
 from requests import get
 import datetime
+from datetime import date
 from dotenv import load_dotenv
 import pandas as pd
+
+today = date.today()
 
 load_dotenv() 
 
@@ -100,15 +103,18 @@ Retrieve the summary extract for a random Wikipedia article.
             
             for i in response['matches']:
                 games.append(f'{Date}   {Away["shortName"]} 🆚 {Home["shortName"]} Game Duration: {Duration["duration"]} Fulltime Score => {Hgoal} : {Agoal}  Halftime Score => {Hgoali} : {Agoali}')
-            
+        if len(games) == 0:   
+            se = "No available matches tody"
         
         # for i in games:
-                xop = f'{Away["shortName"]}'
+                # xop = f'{Away["shortName"]}'
+                
+                
 
     except Exception as e:
         print(" Sorry, We couldn't get today's match", e)   
-
-    return render_template('index.html', get_quotes=Text, author=Author, wiki=aextract, game=len(games), games=games, len=len(x), x=x, xop=xop)
+    date = today.strftime("%B %d, %Y")
+    return render_template('index.html', get_quotes=Text, author=Author, wiki=aextract, game=len(games), games=games, len=len(x), x=x, date=date)
      
 
 if __name__ == "__main__":
