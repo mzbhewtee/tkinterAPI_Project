@@ -117,7 +117,7 @@ Retrieve the summary extract for a random Wikipedia article.
     except Exception as e:
         print(" Sorry, We couldn't get today's match", e)   
     date = today.strftime("%B %d, %Y")
-    return render_template('index.html', get_quotes=Text, author=Author, wiki=aextract, game=len(games), games=games, len=len(x), x=x, date=date)
+    return render_template('index.html', get_quotes=Text, author=Author, wiki=aextract, game=len(games), games=games, len=len(x), x=x, date=date, title=title, aurl=aurl)
      
 
 if __name__ == "__main__":

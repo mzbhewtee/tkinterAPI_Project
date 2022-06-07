@@ -19,7 +19,7 @@ body {
 }
 
 .head{
-    margin-top: 7vh;
+    margin-top: 3vh;
     width: 100%;
 }
 
@@ -28,7 +28,7 @@ body {
     /* margin-right: auto; */
     justify-content: center;
     text-align: center;
-    height: 6vh;
+    height: 3vh;
     width: 30vh;
     /* background: #88353d3f; */
     border: 2px solid #f6f9fc;
@@ -55,10 +55,15 @@ h4{
 }
 
 .group{
-    width: 100%;
-    background-image: url('gyt.webp');
+    margin-left: 19px;
+    margin-right: 19px;
+    background: radial-gradient(ellipse farthest-corner at center top, #f39264 0%, #f2606f 100%);
+    border-radius: 10px;
+    box-shadow: 20px 20px 50px#8e979c;
+    /* width: 100%; */
+    background: radial-gradient(ellipse farthest-corner at center top, #502d1d 0%, #f2606f 100%);
     background-color: rgba(0,0,0,0.25);
-    height: 19vh;
+    /* height: 19vh; */
 }
 
 .quote{
@@ -239,10 +244,23 @@ ol li{
 .wiki{
     margin-left: 19px;
     margin-right: 19px;
-    background: #67728542;
+    background: radial-gradient(ellipse farthest-corner at center top, #f39264 0%, #f2606f 100%);
     border-radius: 10px;
     box-shadow: 20px 20px 50px#8e979c;
 }
-.wiki h3{
-    font-size: 1em;
+.wiki h3, h1{
+    font-size: 0.8em;
+    text-align: justify;
+    margin-left: 3vh;
+    margin-right: 3vh;
+    /* margin-bottom: 3vh; */
+    color: #1d2127;
+}
+a{
+    /* text-decoration: none; */
+    font-size: 0.8em;
+    color: #2e7a4e;
+}
+h1{
+    text-decoration: underline;
 }
