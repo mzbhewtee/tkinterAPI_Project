@@ -71,6 +71,8 @@ def matches():
             Agoal = match.get('score',{}).get('fullTime', {}).get('away')
             Hgoali = match.get('score',{}).get('halfTime', {}).get('home')
             Agoali = match.get('score',{}).get('halfTime', {}).get('away')
+            # Date = datetime.datetime.utcfromtimestamp(dates)
+
             print(Away['shortName'], "VS", Home['shortName'], " ", Date,"Game Duration:", Duration['duration'], "\nFulltime Score=>", Hgoal,":",Agoal, " ", " Halftime Score=>", Hgoali,":",Agoali,"\n")
             
         

@@ -10,6 +10,7 @@ import datetime
 from datetime import date
 from dotenv import load_dotenv
 import pandas as pd
+import csv
 
 today = date.today()
 
@@ -104,19 +105,23 @@ Retrieve the summary extract for a random Wikipedia article.
             Hgoali = match.get('score',{}).get('halfTime', {}).get('home')
             Agoali = match.get('score',{}).get('halfTime', {}).get('away')
             
-            for i in response['matches']:
-                games.append(f'{Date}   {Away["shortName"]} 🆚 {Home["shortName"]} Game Duration: {Duration["duration"]} Fulltime Score => {Hgoal} : {Agoal}  Halftime Score => {Hgoali} : {Agoali}')
-        if len(games) == 0:   
-            se = "No available matches tody"
+            # for i in response['matches']:
+            games.append(f'{Date}   {Away["shortName"]} {Hgoal} 🆚 {Agoal} {Home["shortName"]}')
+
+            # games.append(f'{Date}   {Away["shortName"]} 🆚 {Home["shortName"]} Game Duration: {Duration["duration"]} Fulltime Score => {Hgoal} : {Agoal}  Halftime Score => {Hgoali} : {Agoali}')
+        # if len(games) == 0:   
+            # se = "No available matches tody"
         
         # for i in games:
-                # xop = f'{Away["shortName"]}'
-                
-                
+                # xop = f'{Away["shortName"]}'    
 
     except Exception as e:
         print(" Sorry, We couldn't get today's match", e)   
     date = today.strftime("%B %d, %Y")
+
+    # file = open('ML.csv')
+
+
     return render_template('index.html', get_quotes=Text, author=Author, wiki=aextract, game=len(games), games=games, len=len(x), x=x, date=date, title=title, aurl=aurl)
      
 

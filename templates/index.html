@@ -58,10 +58,19 @@
         <h3>{{ wiki }} <a href="{{aurl}}"> Read More...</a></h3>
         
     </section>
-    <ol>football, {% for i in range(0, game) %}
-        <li>{{ games[i] }}</li>
-            {% endfor %}
-    </ol>
+    <section class="last">
+        <div class="football">
+            <h2>Football Matches Today</h2>
+            <ol>{% for i in range(0, game) %}
+                <li>{{ games[i] }}</li>
+                <br>
+                {% endfor %}
+            </ol>
+        </div>
+        <div class="Machine">
+            <h2>Daily machine learning</h2>
+        </div>
+    </section>
     <script  src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
