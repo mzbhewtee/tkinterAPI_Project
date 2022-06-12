@@ -252,11 +252,9 @@ ol li{
     text-align: justify;
     margin-left: 3vh;
     margin-right: 3vh;
-    /* margin-bottom: 3vh; */
     color: #1d2127;
 }
 a{
-    /* text-decoration: none; */
     font-size: 0.8em;
     color: #2e7a4e;
 }
@@ -265,31 +263,30 @@ h1{
 }
 .last{
     margin-top: 4vh;
-    /* border-inline: 4vh; */
     width: 100%;
     display: flex;
-    /* overflow: hidden; */
     margin-bottom: 8vh;
 }
 .football{
     border-radius: 10px;
     box-shadow: -20px 20px 50px #8e979c;
-    flex: 40%;
+    flex: 45%;
     margin-left: 19px;
     margin-right: 19px; 
 }
 .Machine{
+    background: #8798AA;
     border-radius: 10px;
     box-shadow: -20px 20px 50px #aadefa;
-    flex: 60%;
+    flex: 55%;
     margin-left: 19px;
     margin-right: 19px;
+    color: #fff
 }
-.football ol li{
-    /* text-decoration: none; */
-    list-style-type: none;
-    padding-left: 0;
-    /* text-align: left; */
-    /* margin-left: 0; */
-    /* list-style-position: initial; */
+.football h3{
+    font-size: 0.9em;
+    text-align: center;
+    margin-left: 3vh;
+    margin-right: 3vh;
+    color: #1d2127;
 }

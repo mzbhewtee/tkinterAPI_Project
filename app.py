@@ -94,19 +94,21 @@ Retrieve the summary extract for a random Wikipedia article.
         response = (requests.get(uri, headers=headers)).json()
         
         games = []
+        dates=[]
+        # nline = '\n\n'
 
         for match in response['matches']:
             Date = match.get('utcDate')
             Away = match.get('awayTeam')
             Home = match.get('homeTeam')
-            Duration = match.get('score')
+            # Duration = match.get('score')
             Hgoal = match.get('score',{}).get('fullTime', {}).get('home')
             Agoal = match.get('score',{}).get('fullTime', {}).get('away')
-            Hgoali = match.get('score',{}).get('halfTime', {}).get('home')
-            Agoali = match.get('score',{}).get('halfTime', {}).get('away')
+            # Hgoali = match.get('score',{}).get('halfTime', {}).get('home')
+            # Agoali = match.get('score',{}).get('halfTime', {}).get('away')
             
             # for i in response['matches']:
-            games.append(f'{Date}   {Away["shortName"]} {Hgoal} 🆚 {Agoal} {Home["shortName"]}')
+            games.append(f' {Date} {Away["shortName"]} {Hgoal} 🆚 {Agoal} {Home["shortName"]}')
 
             # games.append(f'{Date}   {Away["shortName"]} 🆚 {Home["shortName"]} Game Duration: {Duration["duration"]} Fulltime Score => {Hgoal} : {Agoal}  Halftime Score => {Hgoali} : {Agoali}')
         # if len(games) == 0:   
