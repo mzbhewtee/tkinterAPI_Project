@@ -62,7 +62,6 @@
         <div class="football">
             <h2>Football Matches Today</h2>
             <h3>{% for i in range(0, game) %}
-                <br>
                 {{ games[i] }}
                 <br>
                 {% endfor %}
@@ -70,6 +69,12 @@
         </div>
         <div class="Machine">
             <h2>Daily machine learning</h2>
+                {% for i in range(0, mls) %}
+                <div class="doStuff">
+                <h3>{{ ml[i] }}</h3>
+                </div>
+                <br>
+            {% endfor %}
         </div>
     </section>
     <script  src="{{ url_for('static', filename='js/script.js') }}"></script>

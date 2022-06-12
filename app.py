@@ -94,37 +94,36 @@ Retrieve the summary extract for a random Wikipedia article.
         response = (requests.get(uri, headers=headers)).json()
         
         games = []
-        dates=[]
-        # nline = '\n\n'
 
         for match in response['matches']:
             Date = match.get('utcDate')
             Away = match.get('awayTeam')
             Home = match.get('homeTeam')
-            # Duration = match.get('score')
             Hgoal = match.get('score',{}).get('fullTime', {}).get('home')
             Agoal = match.get('score',{}).get('fullTime', {}).get('away')
-            # Hgoali = match.get('score',{}).get('halfTime', {}).get('home')
-            # Agoali = match.get('score',{}).get('halfTime', {}).get('away')
             
-            # for i in response['matches']:
             games.append(f' {Date} {Away["shortName"]} {Hgoal} 🆚 {Agoal} {Home["shortName"]}')
 
-            # games.append(f'{Date}   {Away["shortName"]} 🆚 {Home["shortName"]} Game Duration: {Duration["duration"]} Fulltime Score => {Hgoal} : {Agoal}  Halftime Score => {Hgoali} : {Agoali}')
-        # if len(games) == 0:   
-            # se = "No available matches tody"
-        
-        # for i in games:
-                # xop = f'{Away["shortName"]}'    
+            
 
     except Exception as e:
         print(" Sorry, We couldn't get today's match", e)   
+
+    ml = []
     date = today.strftime("%B %d, %Y")
 
-    # file = open('ML.csv')
+    with open('static/ML.csv', newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+    
+        for row in reader:
+            p = row['PROJECT']
+            d = row['DETAILS']
+            ml.append(f'{p} {d}')
+
+        
 
 
-    return render_template('index.html', get_quotes=Text, author=Author, wiki=aextract, game=len(games), games=games, len=len(x), x=x, date=date, title=title, aurl=aurl)
+    return render_template('index.html', get_quotes=Text, author=Author, wiki=aextract, game=len(games), games=games, len=len(x), x=x, date=date, title=title, aurl=aurl, mls=len(ml), ml=ml)
      
 
 if __name__ == "__main__":

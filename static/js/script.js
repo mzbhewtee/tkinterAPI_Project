@@ -4,6 +4,7 @@ const todoList = document.querySelector('.todos');
 const list = document.querySelectorAll('.todos li'); //gives a NodeList of all li's
 let listLength = list.length;
 
+
 const generateTemplate = (todo) => {
 
     const html = `<li>
@@ -37,3 +38,5 @@ function deleteTodos(e) {
 }
 //delete todos
 todoList.addEventListener('click', deleteTodos);
+
+setInterval(console.log(doStuff), 7000);
